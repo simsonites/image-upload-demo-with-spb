@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User profile </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+          integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+            integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container offset-md-1">
+
+    <div class="media block-update-card mt-md-4">
+         <a class="pull-left" href="#">
+            <img class="media-object update-card-MDimentions" style="width:200px;height:200px;"
+                 th:src="@{/users/user/image(userId=${user.id})}"
+                 title="User Photo"/>
+        </a>
+
+        <img src="/static/images/placeholder.jpeg">
+        <div class="row">
+            <div class="media-body update-card-body ml-5">
+                <h4 class="media-heading mb-2">User Registration Information</h4>
+                <table class="table table-bordered">
+                    <tbody>
+                    <tr>
+                        <th scope="row">User ID </th>
+                        <td colspan="4" th:text="${user.id}" >The User ID</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">User Name </th>
+                        <td colspan="4" th:text="${user.firstName}" >The  First Name</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">User Name </th>
+                        <td colspan="4" th:text="${user.lastName}" >The Last Name</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email Address </th>
+                        <td colspan="4" th:text="${user.email}" >The Email</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--Simple Card Layout-->
+    <div class="block-update-card mt-1">
+        <div class="update-card-body">
+            <a th:href="@{/photo(userId=${user.id})}"> Upload photo</a>
+        </div>
+    </div>
+    <br><br>
+</div>
+</body>
+</html>
